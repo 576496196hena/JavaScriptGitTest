@@ -1,0 +1,102 @@
+<!doctype html>             <!--文档信息-->
+<html lang="en">             <!--跟标签-->
+<head>                       <!--网页头部-->
+    <meta charset="UTF-8">          <!--字符编码-->
+    <meta name="Generator" content="EditPlus®">          <!--编辑器-->
+    <meta name="Author" content="何娜">                 <!--作者-->
+    <!--网站三要素: 关键字 网页描述 标题-->
+    <meta name="Keywords" content="第六章案例二">             <!--关键字-->
+    <meta name="Description" content="div学习">   <!--网页描述-->
+    <title>点击伸缩</title>      <!--网站标题-->
+    <style type="text/css">                      /*写入样式*/
+    body { font-family: "Microsoft YaHei", serif;}
+    body, dl, dd, p, h1, h2, h3, h4, h5, h6 ,div,ul,li{margin: 0;}
+    ol, ul, li {margin: 0;padding: 0;list-style: none;}
+    img {border: none;}
+        #warp{
+            width:130px;
+            margin:50px auto;
+            border:1px solid red;
+        }
+        #warp .content{
+            width:100%;
+            margin-bottom:2px;
+        }
+        #warp .content h3{
+            width:100%;
+            height:30px;
+            color:#fff;
+            font-size:20px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #000;
+            cursor: pointer;
+        }
+        #warp .content ul {
+            text-align: center;
+            }
+        .content ul li{
+            width: 100%;
+            height: 20px;
+            margin-bottom: 2px;
+            line-height: 20px;
+            background-color: deepskyblue;
+            cursor: alias;
+        }
+        #warp .content ul{
+            display: none;
+        }
+        #warp .content ul.onclick{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div class="content">
+        <h3>课程</h3>
+        <ul class="onclick">
+            <li>语文</li>
+            <li>数学</li>
+            <li>外语</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>课程</h3>
+        <ul>
+            <li>语文</li>
+            <li>数学</li>
+            <li>外语</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>课程</h3>
+        <ul>
+            <li>语文</li>
+            <li>数学</li>
+            <li>外语</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var oH3 = document.getElementsByTagName("h3"),
+        oUl = document.getElementsByTagName("ul"),
+        length = oH3.length;
+    for(var i = 0; i < length;i++) {
+        oH3[i].bot = i;
+        oH3[i].onclick = function () {
+            // oUl[this.ul].className = "onclick";
+            // console.log(this.ul);
+            // if (oUl[this.bot].className ==="") {
+            //     oUl[this.bot].className = "onclick";
+            // } else {
+            //     oUl[this.bot].className = "";
+            // }
+            oUl[this.bot].className = oUl[this.bot].className ===""? "onclick":"";
+        }
+    }
+
+
+</script>
+</body>
+</html>

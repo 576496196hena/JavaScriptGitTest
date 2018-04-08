@@ -1,0 +1,56 @@
+<!doctype html>             <!--文档信息-->
+<html lang="en">             <!--跟标签-->
+<head>                       <!--网页头部-->
+    <meta charset="UTF-8">          <!--字符编码-->
+    <meta name="Generator" content="EditPlus®">          <!--编辑器-->
+    <meta name="Author" content="何娜">                 <!--作者-->
+    <!--网站三要素: 关键字 网页描述 标题-->
+    <meta name="Keywords" content="第六章案例二">             <!--关键字-->
+    <meta name="Description" content="div学习">   <!--网页描述-->
+    <title>生成10个div</title>      <!--网站标题-->
+    <style type="text/css">                      /*写入样式*/
+    button,div{margin:0;padding:0;}
+        button{
+            width: 100px;
+            height: 30px;
+            background-color: antiquewhite;
+            box-shadow: 0 7px 5px #ccc;
+        }
+        #warp div{
+            float: left;
+            width:50px;
+            height: 50px;
+            margin:20px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <button>生成10个DIV</button>
+    <div id="warp">
+        <!--<div id="box"></div>-->
+        <!--<div id="box"></div>-->
+    </div>
+    <script>
+        var oWarp = document.getElementById("warp"),
+            oBtn = document.getElementsByTagName("button");
+
+        oBtn[0].onclick = function ( ) {
+            var  str = "";  //定义一个空
+            for(var i=0;i<10;i++) {
+                str += "<div></div>";
+            }
+            oWarp.innerHTML += str;
+        };
+
+        //这种方法每次执行时,页面就会全部重写div,性能不是很好
+        // oBtn[0].onclick = function ( ) {
+        //     for(var i=0;i<10;i++) {
+        //         oWarp.innerHTML += "<div></div>";
+        //     }
+        // };
+
+
+    </script>
+</body>
+</html>

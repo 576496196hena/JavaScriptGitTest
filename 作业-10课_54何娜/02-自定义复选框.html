@@ -1,0 +1,73 @@
+<!doctype html>             <!--文档信息-->
+<html lang="en">             <!--跟标签-->
+<head>                       <!--网页头部-->
+    <meta charset="UTF-8">          <!--字符编码-->
+    <meta name="Generator" content="EditPlus®">          <!--编辑器-->
+    <meta name="Author" content="何娜">                 <!--作者-->
+    <!--网站三要素: 关键字 网页描述 标题-->
+    <meta name="Keywords" content="第六章案例二">             <!--关键字-->
+    <meta name="Description" content="div学习">   <!--网页描述-->
+    <title>自定义复选框</title>      <!--网站标题-->
+    <style type="text/css">                      /*写入样式*/
+    body {font-family: "Microsoft YaHei", serif;}
+    body, dl, dd, p, h1, h2, h3, h4, h5, h6 {margin: 0;}
+    ol, ul, li {margin: 0;padding: 0;list-style: none;}
+    img {border: none;}
+    #warp{
+        width:600px;
+        height: 500px;
+        margin:100px auto;
+    }
+    #warp p{
+        width:100%;
+        line-height: 30px;
+        border-bottom:1px dashed #000;
+    }
+    #warp ul{
+        width:100%;
+        margin-top:30px;
+        margin-left: 30px;
+    }
+    #warp ul li{
+        float: left;
+        width:60px;
+        height:30px;
+        padding: 0 25px 15px;
+        background: url("img/ckbg1.jpg") no-repeat;
+    }
+    #warp ul li.seleted{
+        background-image: url("img/ckbg2.jpg");
+    }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <p>请选择你喜欢的水果</p>
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>梨子</li>
+        <li>桃子</li>
+        <li>弥猴桃</li>
+        <li>车厘子</li>
+        <li class="seleted">李子</li>
+    </ul>
+</div>
+<script>
+    var oLi = document.querySelectorAll("li");
+    // console.log(oLi);
+    var x = 0,
+        len=oLi.length;
+
+    for (var x = 0; x < len; x++) {
+        oLi[x].onclick = function () {
+            if(this.className){
+                this.className = "";
+            }else {
+                this.className = "seleted";
+            }
+        }
+     }
+</script>
+</body>
+</html>

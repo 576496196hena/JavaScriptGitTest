@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><!--字符编码-->
+    <meta name="Generator" content="EditPlus?"><!--使用的编辑器-->
+    <meta name="Author" content="何娜"><!--作者-->
+    <meta name="Keywords" content="关键字"><!--关键字-->
+    <meta name="Description" content="简介"><!--描述,简介-->
+    <title>单边切换_循环切换</title><!--网站的标题-->
+    <style>
+        div,img,p{margin:0;padding:0;}
+        #warp{
+            position: relative;
+            width: 600px;
+            height: 490px;
+            margin:100px auto 0;
+        }
+        #warp .img{
+            position: relative;
+            width: 100%;
+            height: 376px;
+        }
+        #warp .img .pic-p1,
+        .img .pic-p2{
+            position: absolute;
+            width: 100%;
+            height: 26px;
+            left:0;
+            font-size: 14px;
+            color:#fff;
+            line-height: 26px;
+            text-align:center;
+            background-color: rgba(0,0,0,0.4);
+            Z-index:2;
+        }
+        #warp .img .pic-p1{
+            top:0;
+        }
+        #warp .img .pic-p2 {
+            bottom: 0;
+        }
+        #warp .img img{
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left:0;
+            top:0;
+        }
+        #warp .img img.on{
+            display: block;
+            background-color:red;
+        }
+        #warp .btn{
+            width:170px;
+            height:44px;
+            margin: 50px auto 0;
+        }
+        #warp .btn button{
+            float: left;
+            width:80px;
+            height:40px;
+            margin-right:5px;
+         }
+        #warp .btn .btn-p{
+            background-color:red;
+        }
+        #warp .key{
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0,0,0,.4);
+            Z-index:3;
+            cursor: pointer;
+        }
+        #warp .left{
+            left: 0;
+            top:36%;
+        }
+        #warp .right{
+            right: 0;
+            top:36%;
+        }
+    </style>
+</head>
+<body>
+    <div id="warp">
+        <div class="key left"> &lt;</div>
+        <div class="key right">&gt;</div>
+        <div class="img">
+            <p class="pic-p1"> <span>1</span>/5</p>
+            <img class="on" src="images/1.jpg" alt="">
+            <img src="images/2.jpg" alt="">
+            <img src="images/3.jpg" alt="">
+            <img src="images/4.jpg" alt="">
+            <img src="images/5.jpg" alt="">
+            <p class="pic-p2">植物</p>
+        </div>
+        <div class="btn">
+            <button class="btn-p">正常切换</button>
+            <button >循环切换</button>
+        </div>
+    </div>
+    <script>
+        var arrText = ['植物','大战','植物大战','植物大战僵尸','植物大战僵尸中文版'];
+        var arrNum = [1,2,3,4,5];
+        var oRight = document.getElementsByClassName("right"),
+            oLeft = document.getElementsByClassName("left"),
+            oImg = document.getElementsByTagName("img"),
+            len = oImg.length;
+            oSpan = document.getElementsByTagName("span"),
+            oPictext = document.getElementsByClassName("pic-p2"),
+            oBtn = document.getElementsByTagName("button");
+        var index = 0,
+            bool =true;
+        var len = oImg.length;
+        oRight[0].onclick = function () {
+            if(bool) {//正常模式
+                if (index !== len - 1) {
+                    oImg[index].className = "";
+                    index++;
+                    oImg[index].className = "on";
+                    oSpan[0].innerHTML = arrNum[index];
+                    oPictext[0].innerHTML = arrText[index];
+                }
+            }else {  //循环模式
+                oImg[index].className = "";
+                index++;
+                index %=len;
+                console.log(index);
+                oImg[index].className = "on";
+                oSpan[0].innerHTML = arrNum[index];
+                oPictext[0].innerHTML = arrText[index];
+
+            }
+        };
+        oLeft[0].onclick = function () {
+            if(bool) {
+                if (index !== 0) {
+                    oImg[index].className = "";
+                    index--;
+                    oImg[index].className = "on";
+                    oSpan[0].innerHTML = arrNum[index];
+                    oPictext[0].innerHTML = arrText[index];
+                }
+            }else {
+                oImg[index].className = "";
+                index--;
+                if(index <0){
+                    index=len-1;
+                }
+                oImg[index].className = "on";
+                oSpan[0].innerHTML = arrNum[index];
+                oPictext[0].innerHTML = arrText[index];
+
+            }
+        };
+        oBtn[1].onclick =function () {
+            oBtn[0].className="";
+            this.className = "btn-p" ;
+            bool=false;
+        }
+        oBtn[0].onclick =function () {
+            oBtn[1].className="";
+            this.className = "btn-p" ;
+            bool = true;
+        }
+
+    </script>
+</body>
+</html>

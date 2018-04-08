@@ -1,0 +1,88 @@
+<!doctype html>             <!--文档信息-->
+<html lang="en">             <!--跟标签-->
+<head>                       <!--网页头部-->
+    <meta charset="UTF-8">          <!--字符编码-->
+    <meta name="Generator" content="EditPlus®">          <!--编辑器-->
+    <meta name="Author" content="何娜">                 <!--作者-->
+    <!--网站三要素: 关键字 网页描述 标题-->
+    <meta name="Keywords" content="第六章案例二">             <!--关键字-->
+    <meta name="Description" content="div学习">   <!--网页描述-->
+    <title>九九</title>      <!--网站标题-->
+    <style type="text/css">                      /*写入样式*/
+    body { font-family: "Microsoft YaHei", serif;}
+    body, dl, dd, p, h1, h2, h3, h4, h5, h6 {  margin: 0;}
+    ol, ul, li {margin: 0;padding: 0;list-style: none;}
+    img {border: none;}
+    #box{
+        width: 100%;
+    }
+    #box #biao{
+        width:100%;
+        margin-top:50px;
+        margin-left:50px;
+    }
+    #box #biao p{
+        display: inline-block;
+        width:70px;
+        height:40px;
+        border:1px solid red;
+        line-height: 40px;
+        text-align:center;
+    }
+        #biao
+    </style>
+</head>
+<body>
+<hr>
+<div id="box">
+    <div id="biao">
+        <!--<p>1 x 1 = 1</p><br>-->
+        <!--<p>2 x 1 = 1</p><p>2 x 2 = 1</p><br>-->
+    </div>
+</div>
+<script>
+    var oBiao = document.getElementById("biao"),
+        number = 9;
+    //第一种
+    for(var i = 1; i<=number;i++){
+        var str = "";
+        for(var z = 1;z <=i;z++){
+            str += "<p>"+i+"x"+z+"="+i * z +"</p>";
+        }
+        str +="<br>";
+        oBiao.innerHTML +=str;
+    }
+    oBiao.innerHTML +="<hr><hr>";
+    //第二种
+    for(var i = 1; i<=number;i++){
+        var str = "";
+        for(var z = i;z <=number;z++){
+            str += "<p>"+i+"x"+z+"="+i * z +"</p>";
+        }
+        str +="<br>";
+        oBiao.innerHTML +=str;
+    }
+    oBiao.innerHTML +="<hr><hr>";
+    //第三种
+    for(var i = 9; i>=1;i--){
+        var str = "";
+        for(var z = 1;z <=i;z++){
+            str += "<p>"+i+"x"+z+"="+i * z +"</p>";
+        }
+        str +="<br>";
+        oBiao.innerHTML +=str;
+    }
+    oBiao.innerHTML +="<hr><hr>";
+    //第四种
+    for(var i = 9; i>=1;i--){
+        var str = "";
+        for(var z = 9;z >=i;z--){
+            str += "<p>"+i+"x"+z+"="+i * z +"</p>";
+        }
+        str +="<br>";
+        oBiao.innerHTML +=str;
+    }
+    oBiao.innerHTML +="<hr><hr>";
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>             <!--文档信息-->
+<html lang="en">             <!--跟标签-->
+<head>                       <!--网页头部-->
+    <meta charset="UTF-8">          <!--字符编码-->
+    <meta name="Generator" content="EditPlus®">          <!--编辑器-->
+    <meta name="Author" content="何娜">                 <!--作者-->
+    <!--网站三要素: 关键字 网页描述 标题-->
+    <meta name="Keywords" content="第六章案例二">             <!--关键字-->
+    <meta name="Description" content="div学习">   <!--网页描述-->
+    <title>生成左尖括号形状</title>      <!--网站标题-->
+    <style type="text/css">                      /*写入样式*/
+    div{margin:0;padding:0;}
+        #warp{
+            /*width:200px;*/
+            /*height: 200px;*/
+            margin:100px auto;
+            border:1px dashed #000;
+        }
+        #warp div{
+            width:50px;
+            height: 50px;
+            background-color:#333333;
+            color:#fff;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <!--<div>1</div>-->
+    <!--<div>2</div>-->
+    <!--<div>3</div>-->
+</div>
+<script>
+    var oWarp = document.getElementById("warp");
+    var lenth = 51;
+
+    for (var i =1; i<= lenth; i++){
+        var mid = lenth/2;
+        var aAdd = (i-1) * 50;
+        oWarp.style.width = (mid + 0.5) * 50 + "px";
+        oWarp.style.height = lenth * 50 + "px";
+        if(i <=mid){
+        oWarp.innerHTML += "<div style='margin-left:" + aAdd + "px'" + " >" + i + "</div>";
+        // console.log.dir(oWarp.innerHTML);
+     }else {
+            var aRed = (lenth-i) * 50;
+            oWarp.innerHTML += "<div style='margin-left:" + aRed + "px'" + " >" + i + "</div>";
+
+        }
+    }
+
+
+</script>
+</body>
+</html>
